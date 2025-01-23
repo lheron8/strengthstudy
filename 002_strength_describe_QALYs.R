@@ -70,6 +70,9 @@ ggplot(mean_qaly_data_overall, aes(x = Time, y = mean_QALY, group = Assigned, co
   scale_x_discrete(labels = c("Baseline", "12 weeks", "6 months")) +
   theme_minimal()
 
+long_data$Time <- factor(long_data$Time, levels = c("EQ5D_BL", "EQ5D_12WK", "EQ5D_6M"), 
+                         labels = c("Baseline", "12 weeks", "6 months"))
+
 ggplot(long_data, aes(x = Time, y = QALY, fill = Assigned)) +
   geom_boxplot() +
   labs(title = "Distribution of QALYs at each time point in control and intervention groups", 
